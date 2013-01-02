@@ -209,7 +209,7 @@ class CheckboxList extends BaseControl
 			throw new InvalidArgumentException("Key '$key' is not present in $items.");
 		}
 
-		$item = $this->items[$key];
+		$item = $this->itemsProcessed[$key];
 		$control = clone parent::getControl();
 		$values = $this->value === NULL ? NULL : (array) $this->getValue();
 		$control->name .= '[]';
@@ -235,7 +235,7 @@ class CheckboxList extends BaseControl
 			throw new InvalidArgumentException("Key '$key' is not present in $items.");
 		}
 
-		$item = $this->items[$key];
+		$item = $this->itemsProcessed[$key];
 		$label = Html::el('label');
 		$label->for = parent::getControl()->id . '-' . $item['counter'];
 		if ($item['label'] instanceof Html) {
