@@ -206,7 +206,7 @@ class CheckboxList extends BaseControl
 	public function getItemControl($key)
 	{
 		if (!isset($this->items[$key])) {
-			throw new InvalidArgumentException("Key '$key' is not present in $items.");
+			throw new InvalidArgumentException("Key '$key' is not present in \$items.");
 		}
 
 		$item = $this->items[$key];
@@ -232,7 +232,7 @@ class CheckboxList extends BaseControl
 	public function getItemLabel($key)
 	{
 		if (!isset($this->items[$key])) {
-			throw new InvalidArgumentException("Key '$key' is not present in $items.");
+			throw new InvalidArgumentException("Key '$key' is not present in \$items.");
 		}
 
 		$item = $this->items[$key];
