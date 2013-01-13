@@ -219,7 +219,7 @@ class RadioList extends BaseControl
 			throw new InvalidArgumentException("Key '$key' is not present in $items.");
 		}
 
-		$item = $this->items[$key];
+		$item = $this->itemsProcessed[$key];
 		$control = clone parent::getControl();
 		$control->id = $control->id . '-' . $item['counter'];
 		$control->checked = (string) $key === ($this->value === NULL ? NULL : (string) $this->getValue());
