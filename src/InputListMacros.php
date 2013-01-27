@@ -55,7 +55,7 @@ class InputListMacros extends Latte\Macros\MacroSet
 		$this->inList = FALSE;
 		$node->openingCode = $writer->write('<?php $_inputlist = is_object(%node.word) ? %node.word : $_form[%node.word];');
 		if (preg_match('#\W(\$iterator|include|require|get_defined_vars)\W#', $this->getCompiler()->expandTokens($node->content))) {
-			$node->openingCode .= '$iterations = 0; foreach ($iterator = $_l->its[] = new Nette\Iterators\CachingIterator($_inputlist->getItems() as ';
+			$node->openingCode .= '$iterations = 0; foreach ($iterator = $_l->its[] = new Nette\Iterators\CachingIterator($_inputlist->getItems()) as ';
 			$node->closingCode = '<?php $iterations++; endforeach; array_pop($_l->its); $iterator = end($_l->its);';
 		} else {
 			$node->openingCode .= '$iterations = 0; foreach ($_inputlist->getItems() as ';
