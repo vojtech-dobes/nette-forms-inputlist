@@ -163,6 +163,7 @@ class CheckboxList extends BaseControl
 			$control->id = $label->for = $id . '-' . $counter;
 			$control->checked = (count($values) > 0) ? in_array($k, $values) : false;
 			$control->value = $k;
+			$control->required = FALSE;
 
 			if ($val instanceof Html) {
 				$label->setHtml($val);
@@ -217,6 +218,7 @@ class CheckboxList extends BaseControl
 		$control->checked = (count($values) > 0) ? in_array($key, $values) : false;
 		$control->value = $key;
 		$control->data('nette-rules', NULL);
+		$control->required = FALSE;
 		return $control;
 	}
 
@@ -249,14 +251,57 @@ class CheckboxList extends BaseControl
 
 
 	/**
-	 * Filled validator: has been any checkbox checked?
+	 * Validator for the minimum amount of checked boxes
 	 *
 	 * @param  CheckboxList
+	 * @param  int
 	 * @return bool
 	 */
-	public static function validateChecked(CheckboxList $control)
+	public static function validateMinLength(CheckboxList $control, $length)
 	{
-		return $control->getValue() !== NULL;
+		return count($control->getValue()) >= $length;
+	}
+
+
+
+	/**
+	 * Validator for the maximum amount of checked boxes
+	 *
+	 * @param  CheckboxList
+	 * @param  int
+	 * @return bool
+	 */
+	public static function validateMaxLength(CheckboxList $control, $length)
+	{
+		return count($control->getValue()) <= $length;
+	}
+
+
+
+	/**
+	 * Validator for the exact amount of checked boxes
+	 *
+	 * @param  CheckboxList
+	 * @param  int
+	 * @return bool
+	 */
+	public static function validateLength(CheckboxList $control, $length)
+	{
+		return count($control->getValue()) == $length;
+	}
+
+
+
+	/**
+	 * Validator for the range of checked boxes
+	 *
+	 * @param  CheckboxList
+	 * @param  int
+	 * @return bool
+	 */
+	public static function validateRange(CheckboxList $control, array $range)
+	{
+		return static::validateMinLength($control, $range[0]) && static::validateMaxLength($control, $range[1]);
 	}
 
 
