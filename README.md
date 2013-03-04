@@ -109,3 +109,43 @@ Attribute version of `{inputlist}` is also possible:
 	</ul>
 {/form}
 ```
+
+### Validation
+
+Here supported rules are listed:
+
+#### CheckboxList
+
+<table>
+	<tr>
+		<th>Form::FILLED</th>
+		<td>At least one box must be checked.</td>
+	</tr>
+	<tr>
+		<th>Form::LENGTH</th>
+		<td>Exact amount of boxes that must be checked.</td>
+	</tr>
+	<tr>
+		<th>Form::MIN_LENGTH</th>
+		<td>Minimum amount of boxes that must be checked.</td>
+	</tr>
+	<tr>
+		<th>Form::MAX_LENGTH</th>
+		<td>Maximum amount of boxes that must be checked.</td>
+	</tr>
+	<tr>
+		<th>Form::RANGE</th>
+		<td>Minimum and maximum amount of boxes that must be checked.</td>
+	</tr>
+</table>
+
+#### RadioList
+
+<table>
+	<tr>
+		<th>Form::FILLED</th>
+		<td>One button must be selected.</td>
+	</tr>
+</table>
+
+All rules are also supported on client-side.
