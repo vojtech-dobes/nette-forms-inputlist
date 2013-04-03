@@ -137,6 +137,10 @@ Here supported rules are listed:
 		<th>Form::RANGE</th>
 		<td>Minimum and maximum amount of boxes that must be checked.</td>
 	</tr>
+	<tr>
+		<th>Form::REGEXP</th>
+		<td>Checks if selected checkbox values matches regular expression.</td>
+	</tr>
 </table>
 
 #### RadioList
@@ -145,6 +149,10 @@ Here supported rules are listed:
 	<tr>
 		<th>Form::FILLED</th>
 		<td>One button must be selected.</td>
+	</tr>
+	<tr>
+		<th>Form::REGEXP</th>
+		<td>Checks if selected radio value matches regular expression.</td>
 	</tr>
 </table>
 
