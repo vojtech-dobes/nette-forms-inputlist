@@ -266,16 +266,18 @@ class RadioList extends BaseControl
 		});
 	}
 
-    /**
-     * Validator for regular expressions for radioList
-     *
-     * @param RadioList
-     * @param string
-     * @return bool
-     */
-    public static function validateregexp(RadioList $control, $regexp)
-    {
-        return (bool) preg_match($regexp,$control->getValue());
-    }
+
+
+	/**
+	 * Validator for regular expressions for radioList
+	 *
+	 * @param  RadioList
+	 * @param  string
+	 * @return bool
+	 */
+	public static function validateRegexp(RadioList $control, $regexp)
+	{
+		return (bool) preg_match($regexp, $control->getValue());
+	}
 
 }

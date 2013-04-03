@@ -304,17 +304,21 @@ class CheckboxList extends BaseControl
 		return static::validateMinLength($control, $range[0]) && static::validateMaxLength($control, $range[1]);
 	}
 
-    /**
-     * Validator for regular expressions of checked boxes
-     *
-     * @param Checkboxlist
-     * @param string
-     * @return bool
-     */
-    public static function validateregexp(Checkboxlist $control, $regexp)
-    {
-        return (bool) preg_match($regexp,$control->getValue());
-    }
+
+
+	/**
+	 * Validator for regular expressions of checked boxes
+	 *
+	 * @param  Checkboxlist
+	 * @param  string
+	 * @return bool
+	 */
+	public static function validateRegexp(Checkboxlist $control, $regexp)
+	{
+		return (bool) preg_match($regexp, $control->getValue());
+	}
+
+
 
 	/**
 	 * Adds addMultiCheckbox() method to Nette\Forms\Container
