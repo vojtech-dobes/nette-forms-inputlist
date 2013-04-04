@@ -307,6 +307,20 @@ class CheckboxList extends BaseControl
 
 
 	/**
+	 * Validator for regular expressions of checked boxes
+	 *
+	 * @param  Checkboxlist
+	 * @param  string
+	 * @return bool
+	 */
+	public static function validateRegexp(Checkboxlist $control, $regexp)
+	{
+		return (bool) preg_match($regexp, $control->getValue());
+	}
+
+
+
+	/**
 	 * Adds addMultiCheckbox() method to Nette\Forms\Container
 	 */
 	public static function register()
