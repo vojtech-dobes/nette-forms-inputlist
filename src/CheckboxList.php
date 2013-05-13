@@ -265,6 +265,18 @@ class CheckboxList extends BaseControl
 
 
 	/**
+	 * Is control filled?
+	 * @return bool
+	 */
+	public function isFilled()
+	{
+		$value = $this->getValue();
+		return is_array($value) ? count($value) > 0 : $value !== NULL;
+	}
+
+
+
+	/**
 	 * Validator for the maximum amount of checked boxes
 	 *
 	 * @param  CheckboxList
